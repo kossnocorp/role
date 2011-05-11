@@ -35,7 +35,7 @@ $.r('login_form');
 ### With context
 
 ``` javascript
-$.role('submit', loginForm); // To handle <a href="#" role="submit"></a> inside loginForm element
+$.r('submit', loginForm); // To handle <a href="#" role="submit"></a> inside loginForm element
 ```
 
 ## Contributors
