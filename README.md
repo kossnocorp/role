@@ -1,5 +1,7 @@
 # jquery.role — jQuery plugin to provide easy way to handle DOM elements by role attribute
 
+This project uses [Semantic Versioning](http://semver.org/) for release numbering.
+
 ## Idea behind this piece of code
 
 I start using role attrbute (`<div role="role_name"></div>`) to handle DOM elements.
@@ -32,11 +34,27 @@ or via alias `$.r`:
 $.r('login_form');
 ```
 
+### Pick by element id
+
+``` javascript
+$.r('#login_form'); // To handle <form id="role-login_form"></form>
+```
+
 ### With context
 
 ``` javascript
 $.r('submit', loginForm); // To handle <a href="#" role="submit"></a> inside loginForm element
 ```
+
+## Changelog
+
+### 0.2.0 (May 20, 2011)
+
+* Added mechanism to pick roles by element id
+
+### 0.1.0 (May 05, 2011)
+
+* Initial release
 
 ## Contributors
 
@@ -55,5 +73,3 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
