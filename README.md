@@ -16,9 +16,7 @@ Some reasons:
 
 But what wrong with id's? Isn't usage of id's is more faster than class or attributes?
 
-* TODO: Die hard reason #1
-* TODO: Die hard reason #2
-* TODO: Die hard reason #3
+Id is ok, but it uses for styles to. So why not use prefix? For example `role-id_name`.
 
 ## Usage
 
