@@ -44,6 +44,19 @@ $.r('#login_form'); // To handle <form id="role-login_form"></form>
 $.r('submit', loginForm); // To handle <a href="#" role="submit"></a> inside loginForm element
 ```
 
+### Using in selectors
+
+You can use symbol '@' in jQuery selectors to find elements with roles
+
+``` javascript
+$('@ajax-link'); // Will select all elements in document with role="ajax-link"
+$('form@login_form'); // <form role="login_form"></form>
+$('form.dark@login_form'); // <form class="dark" role="login_form"></form>
+$('form.dark@login_form[method=post]'); // <form class="dark" role="login_form" method="post"></form>
+$('form.dark@login_form@ajax_form[method=post]'); // <form class="dark" role="login_form ajax_form" method="post"></form>
+etc...
+```
+
 ## Changelog
 
 ### 0.2.0 (May 20, 2011)
