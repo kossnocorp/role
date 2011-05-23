@@ -59,6 +59,7 @@ $.r('submit', loginForm); // To handle <a href="#" role="submit"></a> inside log
 Idea by @kossnocorp and @ai.
 
 * @kossnocorp
+* @chrome
 
 ## License
 
