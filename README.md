@@ -59,6 +59,10 @@ etc...
 
 ## Changelog
 
+### 0.3.0 (May 23, 2011)
+
+* Added native Sizzle selectors support (`$('@ajax_link')`)
+
 ### 0.2.0 (May 20, 2011)
 
 * Added mechanism to pick roles by element id

@@ -1,7 +1,7 @@
 /*
     jquery.role.js
 
-    Version: 0.2.0
+    Version: 0.3.0
 
     Copyright (c) 2011 Sasha Koss
 */
@@ -24,7 +24,7 @@
         $.expr.match[ type ] = new RegExp( $.expr.match[ type ].source + (/(?![^\[]*\])(?![^\(]*\))/.source) );
         $.expr.leftMatch[ type ] = new RegExp( /(^(?:.|\r|\n)*?)/.source + $.expr.match[ type ].source.replace(/\\(\d+)/g, function(all, num) {
             return "\\" + (num - 0 + 1);
-        }));  
+        }));
     }
 
     $.role = function (roleName, context) {
