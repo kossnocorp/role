@@ -20,7 +20,20 @@ Id is ok, but it uses for styles to. So why not use prefix? For example `role-id
 
 ## Usage
 
-### Basic
+### Using selectors
+
+You can use symbol '@' in jQuery selectors to find elements with roles
+
+``` javascript
+$('@ajax-link'); // Will select all elements in document with role="ajax-link"
+$('form@login_form'); // <form role="login_form"></form>
+$('form.dark@login_form'); // <form class="dark" role="login_form"></form>
+$('form.dark@login_form[method=post]'); // <form class="dark" role="login_form" method="post"></form>
+$('form.dark@login_form@ajax_form[method=post]'); // <form class="dark" role="login_form ajax_form" method="post"></form>
+etc...
+```
+
+### Basic (WARNING: basic ($.r) functional is deprecated and will be completely removed in 0.4.0)
 
 ``` javascript
 $.role('login_form'); // To handle <form role="login_form"></form>
@@ -44,20 +57,11 @@ $.r('#login_form'); // To handle <form id="role-login_form"></form>
 $.r('submit', loginForm); // To handle <a href="#" role="submit"></a> inside loginForm element
 ```
 
-### Using in selectors
-
-You can use symbol '@' in jQuery selectors to find elements with roles
-
-``` javascript
-$('@ajax-link'); // Will select all elements in document with role="ajax-link"
-$('form@login_form'); // <form role="login_form"></form>
-$('form.dark@login_form'); // <form class="dark" role="login_form"></form>
-$('form.dark@login_form[method=post]'); // <form class="dark" role="login_form" method="post"></form>
-$('form.dark@login_form@ajax_form[method=post]'); // <form class="dark" role="login_form ajax_form" method="post"></form>
-etc...
-```
-
 ## Changelog
+
+### 0.3.1 (May 24, 2011)
+
+* Selectors performance improvement for modern browsers
 
 ### 0.3.0 (May 23, 2011)
 

@@ -1,13 +1,13 @@
 /*
     jquery.role.js
 
-    Version: 0.3.0
+    Version: 0.3.1
 
     Copyright (c) 2011 Sasha Koss
 */
 
 (function ($) {
-    
+
     var initSizzleNewLayer = function() {
         var div = document.createElement("div"),
             id = "__sizzle__";
@@ -86,7 +86,7 @@
             }
         }
     }
-    
+
     $.expr.match['ROLE'] = /@((?:[\w\u00c0-\uFFFF\-]|\\.)+)/;
 
     $.expr.preFilter['ROLE'] = function( match, curLoop, inplace, result, not, isXML ) {
@@ -105,7 +105,7 @@
             return "\\" + (num - 0 + 1);
         }));
     }
-    
+
     initSizzleNewLayer();
 
     $.role = function (roleName, context) {
