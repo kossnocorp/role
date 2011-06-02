@@ -59,6 +59,10 @@ $.r('submit', loginForm); // To handle <a href="#" role="submit"></a> inside log
 
 ## Changelog
 
+### 0.3.2 (Jenu 2, 2011)
+
+* Reverted changes made in 0.3.1 because issue #6
+
 ### 0.3.1 (May 24, 2011)
 
 * Selectors performance improvement for modern browsers

@@ -1,7 +1,7 @@
 /*
     jquery.role.js
 
-    Version: 0.3.1
+    Version: 0.3.2
 
     Copyright (c) 2011 Sasha Koss
 */
