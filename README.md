@@ -59,7 +59,7 @@ $.r('submit', loginForm); // To handle <a href="#" role="submit"></a> inside log
 
 ## Changelog
 
-### 0.3.2 (Jenu 2, 2011)
+### 0.3.2 (June 2, 2011)
 
 * Reverted changes made in 0.3.1 because issue #6
 
