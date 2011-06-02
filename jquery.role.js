@@ -7,88 +7,6 @@
 */
 
 (function ($) {
-
-    var initSizzleNewLayer = function() {
-        var	div = document.createElement("div"),
-    		id = "__sizzle__";
-    	div.innerHTML = "<p class='TEST'></p>";
-    	if ( div.querySelectorAll && div.querySelectorAll(".TEST").length !== 0 ) {
-            var makeArray = function( array, results ) {
-            	array = Array.prototype.slice.call( array, 0 );
-            	if ( results ) {
-            		results.push.apply( results, array );
-            		return results;
-            	}
-            	return array;
-            };
-            try {
-            	Array.prototype.slice.call( document.documentElement.childNodes, 0 )[0].nodeType;
-            } catch( e ) {
-            	makeArray = function( array, results ) {
-            		var i = 0,
-            			ret = results || [];
-            		if ( toString.call(array) === "[object Array]" ) {
-            			Array.prototype.push.apply( ret, array );
-            		} else {
-            			if ( typeof array.length === "number" ) {
-            				for ( var l = array.length; i < l; i++ ) {
-            					ret.push( array[i] );
-            				}
-
-            			} else {
-            				for ( ; array[i]; i++ ) {
-            					ret.push( array[i] );
-            				}
-            			}
-            		}
-            		return ret;
-            	};
-            }
-
-            var oldFind = $.find;
-            $.find = function( query, context, extra, seed ) {
-                context = context || document;
-                if ( !seed && !$.find.isXML(context) ) {
-                    var match = /^@([\w\-]+$)/.exec( query );
-                    if ( match ) {
-                        if ( context.nodeType === 9 ) {
-                            return makeArray( context.querySelectorAll('[role='+match[1]+']'), extra );
-                        } else if ( context.nodeType === 1 && context.nodeName.toLowerCase() !== "object" ) {
-        					var oldContext = context,
-        						old = context.getAttribute( "id" ),
-        						nid = old || id,
-        						hasParent = context.parentNode,
-        						relativeHierarchySelector = /^\s*[+~]/.test( query );
-        					if ( !old ) {
-        						context.setAttribute( "id", nid );
-        					} else {
-        						nid = nid.replace( /'/g, "\\$&" );
-        					}
-        					if ( relativeHierarchySelector && hasParent ) {
-        						context = context.parentNode;
-        					}
-        					try {
-        						if ( !relativeHierarchySelector || hasParent ) {
-        							return makeArray( context.querySelectorAll( "[id='" + nid + "'] [role='" + match[1] + "']" ), extra );
-        						}
-        					} catch(pseudoError) {
-        					} finally {
-        						if ( !old ) {
-        							oldContext.removeAttribute( "id" );
-        						}
-        					}
-        				}
-    				}
-                    return oldFind(query, context, extra, seed);
-                }
-            }
-
-            for ( var prop in oldFind ) {
-                $.find[ prop ] = oldFind[ prop ];
-            }
-    	}
-    }
-
     $.expr.match['ROLE'] = /@((?:[\w\u00c0-\uFFFF\-]|\\.)+)/;
 
     $.expr.preFilter['ROLE'] = function( match, curLoop, inplace, result, not, isXML ) {
@@ -107,8 +25,6 @@
             return "\\" + (num - 0 + 1);
         }));
     }
-
-    initSizzleNewLayer();
 
     $.role = function (roleName, context) {
 
