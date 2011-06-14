@@ -1,5 +1,5 @@
 ###
-  Role extension to querySelectorAll function.
+  Role extension for querySelectorAll function.
 
   Works only in modern browsers.
   Perfectly in usage with Zepto.js or similar library
