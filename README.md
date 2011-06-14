@@ -6,7 +6,7 @@ This project uses [Semantic Versioning](http://semver.org/) for release numberin
 
 I start using role attrbute (`<div role="role_name"></div>`) to handle DOM elements.
 
-![Y U NO USE CLASSES?](https://github.com/kossnocorp/jquery.role/raw/master/doc/yuno.png)
+![Y U NO USE CLASSES?](https://github.com/kossnocorp/role/raw/master/doc/yuno.png)
 
 Some reasons:
 
