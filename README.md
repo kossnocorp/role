@@ -65,6 +65,10 @@ $.r('submit', loginForm); // To handle <a href="#" role="submit"></a> inside log
 
 ## Changelog
 
+### 0.4.1 (December 8, 2011)
+
+* Fix issue #8
+
 ### 0.4.0 (December 8, 2011)
 
 * Added specs for jQuery Role
