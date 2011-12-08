@@ -35,7 +35,7 @@ $('form.dark@login_form@ajax_form[method=post]'); // <form class="dark" role="lo
 etc...
 ```
 
-### Basic (WARNING: basic ($.r) functional is deprecated and will be completely removed in 0.4.0)
+### Basic (WARNING: basic ($.r) functional is deprecated and will be completely removed in 0.5.0)
 
 ``` javascript
 $.role('login_form'); // To handle <form role="login_form"></form>
