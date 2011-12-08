@@ -2,6 +2,8 @@
 
 This project uses [Semantic Versioning](http://semver.org/) for release numbering.
 
+Sponsored by [Evil Martians](http://evilmartians.com/).
+
 ## Idea behind this piece of code
 
 I start using role attrbute (`<div role="role_name"></div>`) to handle DOM elements.
