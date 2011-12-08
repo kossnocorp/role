@@ -2,7 +2,7 @@ src_dir: .
 
 src_files:
   - 'spec/javascripts/frameworks/jquery.js'
-  - 'lib/*.js'
+  - 'lib/jquery.role.js'
 
 helpers:
   - 'helpers/**/*.js'
