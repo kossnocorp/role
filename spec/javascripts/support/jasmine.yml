@@ -1,6 +1,7 @@
 src_dir: .
 
 src_files:
+  - 'spec/javascripts/frameworks/jquery.js'
   - 'lib/*.js'
 
 helpers:
