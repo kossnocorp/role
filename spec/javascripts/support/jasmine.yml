@@ -1,0 +1,15 @@
+src_dir: .
+
+src_files:
+  - 'spec/javascripts/frameworks/jquery.js'
+  - 'lib/*.js'
+
+helpers:
+  - 'helpers/**/*.js'
+
+spec_dir: 'spec/javascripts'
+
+spec_files:
+  - '*_spec.js'
+
+stylesheets:

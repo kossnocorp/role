@@ -57,7 +57,17 @@ $.r('#login_form'); // To handle <form id="role-login_form"></form>
 $.r('submit', loginForm); // To handle <a href="#" role="submit"></a> inside loginForm element
 ```
 
+## Roadmap
+
+* Optional usage of `data-role` instead `role`.
+
 ## Changelog
+
+### 0.4.0 (December 8, 2011)
+
+* Added specs for jQuery Role
+* Selectors performance improvement for modern browsers (also covers #6)
+* Role extension for querySelectorAll function (`src/role.coffee`)
 
 ### 0.3.2 (June 2, 2011)
 
