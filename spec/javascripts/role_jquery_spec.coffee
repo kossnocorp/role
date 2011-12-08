@@ -36,11 +36,5 @@ describe 'jQuery Role', ->
       $('#element_three').get(0)
     )
 
-  it 'should works with delegate', ->
-    # Related bug: https://github.com/kossnocorp/role/issues/8
-    callback = jasmine.createSpy()
-    $('@some_role').delegate('@another_role', 'click', callback)
-    $('<div role="another_role"></div>')
-      .appendTo('#element_one')
-      .click()
-    expect(callback).toHaveBeenCalled()
+  it 'should work with $.fn.is', ->
+    expect( $('@some_role').is('@some_role') ).toBe(true)
