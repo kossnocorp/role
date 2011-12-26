@@ -12,13 +12,9 @@ I start using role attrbute (`<div role="role_name"></div>`) to handle DOM eleme
 
 Some reasons:
 
-* Markup-guys always change classes and class names (and this is normally)
+* Markup-guys always change classes and class names (and this is ok)
 * It's hard to know this class is used for JavaScript or not?
 * And finally: semantic
-
-But what wrong with id's? Isn't usage of id's is more faster than class or attributes?
-
-Id is ok, but it uses for styles to. So why not use prefix? For example `role-id_name`.
 
 ## Usage
 
@@ -26,44 +22,48 @@ Id is ok, but it uses for styles to. So why not use prefix? For example `role-id
 
 You can use symbol '@' in jQuery selectors to find elements with roles
 
-``` javascript
-$('@ajax-link'); // Will select all elements in document with role="ajax-link"
-$('form@login_form'); // <form role="login_form"></form>
-$('form.dark@login_form'); // <form class="dark" role="login_form"></form>
-$('form.dark@login_form[method=post]'); // <form class="dark" role="login_form" method="post"></form>
-$('form.dark@login_form@ajax_form[method=post]'); // <form class="dark" role="login_form ajax_form" method="post"></form>
-etc...
+Will select all elements in document with `role="ajax-link"`:
+
+``` js
+$('@ajax-link');
+``
+
+`<form role="login_form"></form>`:
+
+``` js
+$('form@login_form');
 ```
 
-### Basic (WARNING: basic ($.r) functional is deprecated and will be completely removed in 0.5.0)
+`<form class="dark" role="login_form"></form>`:
 
-``` javascript
-$.role('login_form'); // To handle <form role="login_form"></form>
+``` js
+$('form.dark@login_form');
 ```
 
-or via alias `$.r`:
+`<form class="dark" role="login_form" method="post"></form>`:
 
-``` javascript
-$.r('login_form');
+``` js
+$('form.dark@login_form[method=post]');
 ```
 
-### Pick by element id
+`<form class="dark" role="login_form ajax_form" method="post"></form>`:
 
-``` javascript
-$.r('#login_form'); // To handle <form id="role-login_form"></form>
-```
-
-### With context
-
-``` javascript
-$.r('submit', loginForm); // To handle <a href="#" role="submit"></a> inside loginForm element
+``` js
+$('form.dark@login_form@ajax_form[method=post]');
 ```
 
 ## Roadmap
 
+### 1.1.0
+
 * Optional usage of `data-role` instead `role`.
 
 ## Changelog
+
+### 1.0.0 (December 26, 2011)
+
+* Remove depricated function
+* Rewrite in CoffeeScript
 
 ### 0.4.1 (December 8, 2011)
 
@@ -97,7 +97,7 @@ $.r('submit', loginForm); // To handle <a href="#" role="submit"></a> inside log
 
 ## Contributors
 
-Idea by @kossnocorp and @ai.
+Original idea by @kossnocorp and @ai.
 
 * @kossnocorp
 * @chrome
