@@ -57,6 +57,12 @@ $('form.dark@login_form@ajax_form[method=post]');
 ### 1.1.0
 
 * Optional usage of `data-role` instead `role`.
+* Better docs
+
+### 1.2.0
+
+* Optimization
+* More tests
 
 ## Changelog
 
