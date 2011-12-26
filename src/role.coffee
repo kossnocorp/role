@@ -1,12 +1,4 @@
-###
-  Role extension for querySelectorAll function.
-
-  Works only in modern browsers.
-  Perfectly in usage with Zepto.js or similar library
-
-  Version: 0.4.0
-  Copyright (c) 2011 Sasha Koss
-###
+# Role.js, extension for querySelectorAll function v1.0.0 ~ https://github.com/kossnocorp/role
 
 for elm in [Document, Element]
   do (elm) ->
