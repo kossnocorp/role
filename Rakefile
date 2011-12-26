@@ -1,3 +1,4 @@
+Dir['lib/tasks/*.rake'].sort.each { |r| load r }
 
 begin
   require 'jasmine'
