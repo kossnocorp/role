@@ -26,7 +26,7 @@ Will select all elements in document with `role="ajax-link"`:
 
 ``` js
 $('@ajax-link');
-``
+```
 
 `<form role="login_form"></form>`:
 
