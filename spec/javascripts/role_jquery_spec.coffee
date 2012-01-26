@@ -48,3 +48,5 @@ describe 'jQuery Role', ->
 
   it 'should work with $.fn.is', ->
     expect( $('@some_role').is('@some_role') ).toBe(true)
+    expect( $('@role_one').is('@role_one') ).toBe(true)
+    expect( $('@role_two').is('@role_one') ).toBe(true)
