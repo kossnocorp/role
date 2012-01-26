@@ -21,6 +21,16 @@ describe 'jQuery Role', ->
     ).toBe(
       $('#element_two').get(0)
     )
+    expect(
+      $('@role_one').get(0)
+    ).toBe(
+      $('#element_two').get(0)
+    )
+    expect(
+      $('@role_two').get(0)
+    ).toBe(
+      $('#element_two').get(0)
+    )
 
   it 'should allow to combine roles with id and classes', ->
     expect(
