@@ -66,6 +66,10 @@ $('form.dark@login_form@ajax_form[method=post]');
 
 ## Changelog
 
+### 1.0.1 (January 27, 2012)
+
+* Fixes problem with multiple roles in Firefox 8 and later (issue #9)
+
 ### 1.0.0 (December 26, 2011)
 
 * Remove depricated function
