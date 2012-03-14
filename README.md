@@ -66,6 +66,10 @@ $('form.dark@login_form@ajax_form[method=post]');
 
 ## Changelog
 
+### 1.0.2 (March 14, 2012)
+
+* Fixes problem in Internet Explorer 8 in jquery.role.js and role.js (issue #11) (thanks @igor-alexandrov for help)
+
 ### 1.0.1 (January 27, 2012)
 
 * Fixes problem with multiple roles in Firefox 8 and later (issue #9)
