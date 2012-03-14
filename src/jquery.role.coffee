@@ -6,7 +6,8 @@ do ($ = jQuery) ->
 
   $.expr.preFilter['ROLE'] = (match) -> ' ' + match[1] + ' '
 
-  $.expr.filter['ROLE'] = (el, match) -> " #{ el.getAttribute('role') } ".indexOf(match) != -1
+  $.expr.filter['ROLE'] = (el, match) ->
+    el.getAttribute? and " #{el.getAttribute('role')} ".indexOf(match) != -1
 
   for type of $.expr.match
     $.expr.match[type] = new RegExp( $.expr.match[type].source + (/(?![^\[]*\])(?![^\(]*\))/.source) )
