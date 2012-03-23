@@ -56,10 +56,18 @@ $('form.dark@login_form@ajax_form[method=post]');
 
 ### 1.1.0
 
+* Turn on configurable attribute shortcuts for Slim in role-rails (#14)
+
+### 1.2.0
+
+* Add `@role_name.some_class` shortcut to Haml
+
+### 1.3.0
+
 * Optional usage of `data-role` instead `role`.
 * Better docs
 
-### 1.2.0
+### 1.4.0
 
 * Optimization
 * More tests
