@@ -1,4 +1,4 @@
-# Role.js, extension for querySelectorAll function v1.0.0 ~ https://github.com/kossnocorp/role
+# Role.js, extension for querySelectorAll function v1.0.2 ~ https://github.com/kossnocorp/role
 
 elements = []
 elements << Document if Document?
