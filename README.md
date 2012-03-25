@@ -21,14 +21,15 @@ In [Evil Martians](http://evilmartians.com/) we came up with a way to use this a
 
 Say you have to update your website page design. HTML markup is done and you have to apply it to the existing site. Of course this marvelous page is crammed with Javascript code tied to an existing structure.
 
-
-    $('.list .item img')
-        .mouseenter(function () {
-            $(this).rotateTo(30, 300)
-        })
-        .mouseleave(function () {
-            $(this).rotateTo(0, 300)
-        });
+``` javascript
+$('.list .item img')
+    .mouseenter(function () {
+        $(this).rotateTo(30, 300)
+    })
+    .mouseleave(function () {
+        $(this).rotateTo(0, 300)
+    });
+```
 
 Obviously, you'll have to rewrite all the selectors for the new layout. And it would be nice if you had to fix only one (or even ten) of these selectors. In reality, most likely, there will be several dozen of them.
 
@@ -46,21 +47,23 @@ With the use of `role`, layout update becomes very straightforward: you just hav
 
 To make life easier (shoutout to [@alex_chrome](https://twitter.com/#!/alex_chrome) for the great idea) we also extended jQuery selector syntax:
 
-    $('@list @item @image')
-        .mouseenter(function () {
-            $(this).rotateTo(30, 300)
-        })
-        .mouseleave(function () {
-            $(this).rotateTo(0, 300)
-        });
+``` javascript
+$('@list @item @image')
+    .mouseenter(function () {
+        $(this).rotateTo(30, 300)
+    })
+    .mouseleave(function () {
+        $(this).rotateTo(0, 300)
+    });
+```
 
 `$('@list @item @image')` is the same as `$('[role="list"] [role="item] [role="image"]')` and you can use "multirole": `$('@list@coupons')`.
 
-In addition to the jQuery plug-in, I also wrote a version that extends 'querySelectorAll' of [Zepto.js](http://zeptojs.com/) with a Role functionality.
+In addition to the jQuery plug-in, I also wrote a version that extends `querySelectorAll` of [Zepto.js](http://zeptojs.com/) with a Role functionality.
 
 Using of 'role' in a query may work a bit slower compared to usual selectors, but it's neglectable even in a large number of queries.
 
-In addition to `role`, I sometimes use `id`, but only in very extraodinary cases -- because if there is only single element on a page today, it may happen that there will be a few tomorrow, even if that wasn't planned.
+In addition to `role`, I sometimes use `id`, but only in very extraodinary cases — because if there is only single element on a page today, it may happen that there will be a few tomorrow, even if that wasn't planned.
 
 ## Usage
 
