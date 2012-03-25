@@ -4,6 +4,17 @@ This project uses [Semantic Versioning](http://semver.org/) for release numberin
 
 Sponsored by [Evil Martians](http://evilmartians.com/).
 
+## Downloads
+
+* [jquery.role.min.js](https://raw.github.com/kossnocorp/role/master/lib/jquery.role.min.js)
+* [role.min.js](https://raw.github.com/kossnocorp/role/master/lib/jquery.role.min.js)
+* [jquery.role.js](https://raw.github.com/kossnocorp/role/master/lib/jquery.role.js)
+* [role.js](https://raw.github.com/kossnocorp/role/master/lib/role.js)
+* [jquery.role.coffee](https://raw.github.com/kossnocorp/role/master/src/jquery.role.coffee)
+* [role.coffee](https://raw.github.com/kossnocorp/role/master/src/role.coffee)
+
+Also you can add jquery.role.js and role.js by bundle `rails-role` gem. See *installation* section below.
+
 ## Use `role` attribute FTW
 
 ```
@@ -98,6 +109,10 @@ You can combine role with other selectors, but that is not recommended:
 ``` js
 $('form.dark@login_form[method=post]')
 ```
+
+## Installation
+
+Coming soon.
 
 ## Roadmap
 
