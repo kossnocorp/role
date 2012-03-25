@@ -74,31 +74,29 @@ You can use shortcut `@` in jQuery selectors to find elements with roles.
 Will select all elements in document with `role="ajax-link"`:
 
 ``` js
-$('@ajax-link');
+$('@ajax-link')
 ```
 
-`<form role="login_form"></form>`:
+Also you can combinate roles:
+
+`<form role="from login_form"></form>`:
 
 ``` js
-$('form@login_form');
+$('@form@login_form')
 ```
 
-`<form class="dark" role="login_form"></form>`:
+Will select all forms with "form" as role `<form role="from login_form"></form><form role="from registration_form"></form>`:
 
 ``` js
-$('form.dark@login_form');
+$('@form')
 ```
+
+You can (but should not do) combinate role with other selectors:
 
 `<form class="dark" role="login_form" method="post"></form>`:
 
 ``` js
-$('form.dark@login_form[method=post]');
-```
-
-`<form class="dark" role="login_form ajax_form" method="post"></form>`:
-
-``` js
-$('form.dark@login_form@ajax_form[method=post]');
+$('form.dark@login_form[method=post]')
 ```
 
 ## Roadmap
