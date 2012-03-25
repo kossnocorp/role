@@ -13,7 +13,7 @@ Sponsored by [Evil Martians](http://evilmartians.com/).
 * [jquery.role.coffee](https://raw.github.com/kossnocorp/role/master/src/jquery.role.coffee)
 * [role.coffee](https://raw.github.com/kossnocorp/role/master/src/role.coffee)
 
-Also you can add jquery.role.js and role.js by bundle `rails-role` gem. See *installation* section below.
+Also you can add jquery.role.js and role.js by bundle `role-rails` gem. For futher details see *installation* section below.
 
 ## Use `role` attribute FTW
 
