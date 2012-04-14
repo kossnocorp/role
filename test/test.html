@@ -2,10 +2,20 @@
                     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+  <script>
+    var version;
+    if (window.location.search.match(/\?\d+\.\d+\.\d+/)){
+      version = window.location.search.substring(1);
+    } else {
+      version = '1.7.2';
+    }
+    
+    document.write('<scr'+'ipt src="https://ajax.googleapis.com/ajax/libs/jquery/'+version+'/jquery.js"></scr'+'ipt>');
+  </script>
   <link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
   <script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js"></script>
   <script type="text/javascript" src="../lib/jquery.role.js"></script>
+  <script>console.log('Testing against jQuery version ' + jQuery.fn.jquery);</script>
 
   <script>
   

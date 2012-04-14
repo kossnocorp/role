@@ -18,7 +18,8 @@ desc 'Run tests'
 task :test do
   pid = spawn('bundle exec serve', err: '/dev/null')
   sleep 2
-  result = system %{phantomjs ./test/phantom-test.js "http://localhost:4000/test/test.html"}
+  version = ENV['JQ_VERSION'] || '1.7.2'
+  result = system %{phantomjs ./test/phantom-test.js "http://localhost:4000/test/test.html?#{version}"}
   Process.kill 'INT', pid
   exit(result)
 end
