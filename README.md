@@ -10,8 +10,6 @@ Sponsored by [Evil Martians](http://evilmartians.com/).
 * [role.min.js](https://raw.github.com/kossnocorp/role/master/lib/jquery.role.min.js)
 * [jquery.role.js](https://raw.github.com/kossnocorp/role/master/lib/jquery.role.js)
 * [role.js](https://raw.github.com/kossnocorp/role/master/lib/role.js)
-* [jquery.role.coffee](https://raw.github.com/kossnocorp/role/master/src/jquery.role.coffee)
-* [role.coffee](https://raw.github.com/kossnocorp/role/master/src/role.coffee)
 
 Also you can add jquery.role.js and role.js by bundle `role-rails` gem. For futher details see *installation* section below.
 
@@ -114,27 +112,11 @@ $('form.dark@login_form[method=post]')
 
 Coming soon.
 
-## Roadmap
-
-### 1.1.0
-
-* Turn on configurable attribute shortcuts for Slim in role-rails (#14)
-
-### 1.2.0
-
-* Add `@role_name.some_class` shortcut to Haml
-
-### 1.3.0
-
-* Optional usage of `data-role` instead `role`.
-* Better docs
-
-### 1.4.0
-
-* Optimization
-* More tests
-
 ## Changelog
+
+### 1.2.0 (April 19, 2012)
+
+* Total rewrite. jQuery versions 1.2-1.7 compatibility (@rwz)
 
 ### 1.0.2 (March 14, 2012)
 
@@ -185,6 +167,7 @@ Original idea by @kossnocorp and @ai.
 
 * @kossnocorp
 * @chrome
+* @rwz
 
 Special thanks to @skfd and @yaroslav for helping with this README.
 
