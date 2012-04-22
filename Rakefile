@@ -17,14 +17,8 @@ JQUERY_VERSIONS = %w(1.2.6 1.3.2 1.4.2 1.5.2 1.6.1 1.7.1 1.7.2)
 
 desc 'Run tests'
 task :test do
-  pid = spawn('bundle exec serve', err: '/dev/null')
-  
-  sleep 2
   results = JQUERY_VERSIONS.map do |version|
-    system %{phantomjs ./test/phantom-test.js "http://localhost:4000/test/test.html?#{version}"}
+    system %{phantomjs ./test/phantom-test.js "test/test.html##{version}"}
   end
-  
-  Process.kill 'INT', pid
-  
   exit(results.all?? 1 : 0)
 end

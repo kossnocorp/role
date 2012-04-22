@@ -4,8 +4,8 @@
 <head>
   <script>
     var version;
-    if (window.location.search.match(/\?\d+\.\d+\.\d+/)){
-      version = window.location.search.substring(1);
+    if (window.location.hash.match(/#\d+\.\d+\.\d+/)){
+      version = window.location.hash.substring(1);
     } else {
       version = '1.7.2';
     }

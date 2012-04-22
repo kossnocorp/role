@@ -14,31 +14,34 @@ function waitFor(test, complete, timeout) {
   }, 100)
 }
 
+var fs = require('fs'), page = require('webpage').create();
 
-var page = new WebPage()
+var url = 'file://localhost' + fs.workingDirectory + '/' + phantom.args[0];
 
 page.onConsoleMessage = function(msg) {
   console.log(msg)
 }
 
-page.open(phantom.args[0], function(status) {
-  waitFor(function() {
-    return page.evaluate(function(){
-      var el = document.getElementById('qunit-testresult')
-      return el && el.innerText.match('completed')
-    })
-  }, function() {
-    var failures = page.evaluate(function() {
-      var el    = document.getElementById('qunit-testresult'),
-          fails = document.getElementsByClassName('fail')
+page.open(url, function(status) {
+  if (status != 'fail') {
+    waitFor(function() {
+      return page.evaluate(function(){
+        var el = document.getElementById('qunit-testresult')
+        return el && el.innerText.match('completed')
+      })
+    }, function() {
+      var failures = page.evaluate(function() {
+        var el    = document.getElementById('qunit-testresult'),
+            fails = document.getElementsByClassName('fail')
 
-      for (var i = 0; i < fails.length; i++)
-        console.log(fails[i].innerText)
+        for (var i = 0; i < fails.length; i++)
+          console.log(fails[i].innerText)
 
-      console.log(el.innerText)
+        console.log(el.innerText)
 
-      return parseInt(el.getElementsByClassName('failed')[0].innerHTML)
-    })
-    phantom.exit(failures > 0 ? 1 : 0)
-  }, 10000)
+        return parseInt(el.getElementsByClassName('failed')[0].innerHTML)
+      })
+      phantom.exit(failures > 0 ? 1 : 0)
+    }, 10000);
+  } else { phantom.exit(1) }
 });
