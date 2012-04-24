@@ -88,13 +88,13 @@ $('@ajax-link')
 
 Also you can combinate roles:
 
-`<form role="from login_form"></form>`:
+`<form role="form login_form"></form>`:
 
 ``` js
 $('@form@login_form')
 ```
 
-Will select all forms with "form" as role `<form role="from login_form"></form><form role="from registration_form"></form>`:
+Will select all forms with "form" as role `<form role="form login_form"></form><form role="form registration_form"></form>`:
 
 ``` js
 $('@form')
