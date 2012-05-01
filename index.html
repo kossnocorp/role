@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Role by kossnocorp</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Role</h1>
+        <p>jQuery plugin to provide easy way to handle DOM elements by role attribute</p>
+        <p class="view"><a href="https://github.com/kossnocorp/role">View the Project on GitHub <small>kossnocorp/role</small></a></p>
+        <ul>
+          <li><a href="https://github.com/kossnocorp/role/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/kossnocorp/role/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/kossnocorp/role">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>jquery.role — jQuery plugin to provide easy way to handle DOM elements by role attribute</h1>
+
+<p>This project uses <a href="http://semver.org/">Semantic Versioning</a> for release numbering.</p>
+
+<p>Sponsored by <a href="http://evilmartians.com/">Evil Martians</a>.</p>
+
+<h2>Downloads</h2>
+
+<ul>
+<li><a href="https://raw.github.com/kossnocorp/role/master/lib/jquery.role.min.js">jquery.role.min.js</a></li>
+<li><a href="https://raw.github.com/kossnocorp/role/master/lib/jquery.role.min.js">role.min.js</a></li>
+<li><a href="https://raw.github.com/kossnocorp/role/master/lib/jquery.role.js">jquery.role.js</a></li>
+<li><a href="https://raw.github.com/kossnocorp/role/master/lib/role.js">role.js</a></li>
+</ul><p>Also you can add jquery.role.js and role.js by bundle <code>role-rails</code> gem. For futher details see <em>installation</em> section below.</p>
+
+<h2>Use <code>role</code> attribute FTW</h2>
+
+<pre><code>Use cases for a role attribute for HTML5, include:
+
+* accessibility,
+* device adaptation,
+* server-side processing, and
+* complex data description.
+</code></pre>
+
+<p>This is a quote from <a href="http://www.w3.org/wiki/PF/XTech/HTML5/RoleAttribute#A_Role_Attribute_for_HTML5">W3C Specification on Role attribute</a>.</p>
+
+<p>In <a href="http://evilmartians.com/">Evil Martians</a> we came up with a way to use this attribute for our own purposes.</p>
+
+<p>Say you have to update your website page design. HTML markup is done and you have to apply it to the existing site. Of course this marvelous page is crammed with Javascript code tied to an existing structure.</p>
+
+<div class="highlight">
+<pre><span class="nx">$</span><span class="p">(</span><span class="s1">'.list .item img'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">mouseenter</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">rotateTo</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">mouseleave</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">rotateTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+    <span class="p">});</span>
+</pre>
+</div>
+
+
+<p>Obviously, you'll have to rewrite all the selectors for the new layout. And it would be nice if you had to fix only one (or even ten) of these selectors. In reality, most likely, there will be several dozen of them.</p>
+
+<p>Another issue is that refactoring process requires you to change the names or a number of classes. You'll have to muddle through every JS file to find all classes you are going to change.</p>
+
+<p>And, of course, in both cases the end result is absolutely unpredictable, because layout alone is not enougn to figure out if a class is actualy used in JS.</p>
+
+<p>The <code>.js-class_name</code> prefix use may seem like a good idea, except that someone will surely add styles to this class in a future... Let alone the difficulty to spot, among a large of number of classes, one with a prefix.</p>
+
+<p>In order to avoid this problems, we can "attach" JS to DOM elements by a <code>role</code> attribute.</p>
+
+<p>It's a lot safer then prefixes, beacause it's much harder to attach styles to <code>role</code> and it feals morally difficult to break the <code>role</code> use convention.</p>
+
+<p>With the use of <code>role</code>, layout update becomes very straightforward: you just have to add roles to a new element, and if you are not tied to the "magic numbers" -- it will work with no further hassle.</p>
+
+<p>To make life easier (shoutout to <a href="https://twitter.com/#!/alex_chrome">@alex_chrome</a> for the great idea) we also extended jQuery selector syntax:</p>
+
+<div class="highlight">
+<pre><span class="nx">$</span><span class="p">(</span><span class="s1">'@list @item @image'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">mouseenter</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">rotateTo</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">mouseleave</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">rotateTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+    <span class="p">});</span>
+</pre>
+</div>
+
+
+<p><code>$('@list @item @image')</code> is the same as <code>$('[role="list"] [role="item] [role="image"]')</code> and you can use "multirole": <code>$('@list@coupons')</code>.</p>
+
+<p>In addition to the jQuery plug-in, I also wrote a version that extends <code>querySelectorAll</code> of <a href="http://zeptojs.com/">Zepto.js</a> with a Role functionality.</p>
+
+<p>Using of 'role' in a query may work a bit slower compared to usual selectors, but it's neglectable even in a large number of queries.</p>
+
+<p>In addition to <code>role</code>, I sometimes use <code>id</code>, but only in very extraodinary cases — because if there is only single element on a page today, it may happen that there will be a few tomorrow, even if that wasn't planned.</p>
+
+<h2>Usage</h2>
+
+<h3>Using selectors</h3>
+
+<p>You can use shortcut <code>@</code> in jQuery selectors to find elements with roles.</p>
+
+<p>Will select all elements in document with <code>role="ajax-link"</code>:</p>
+
+<div class="highlight">
+<pre><span class="nx">$</span><span class="p">(</span><span class="s1">'@ajax-link'</span><span class="p">)</span>
+</pre>
+</div>
+
+
+<p>Also you can combinate roles:</p>
+
+<p><code>&lt;form role="form login_form"&gt;&lt;/form&gt;</code>:</p>
+
+<div class="highlight">
+<pre><span class="nx">$</span><span class="p">(</span><span class="s1">'@form@login_form'</span><span class="p">)</span>
+</pre>
+</div>
+
+
+<p>Will select all forms with "form" as role <code>&lt;form role="form login_form"&gt;&lt;/form&gt;&lt;form role="form registration_form"&gt;&lt;/form&gt;</code>:</p>
+
+<div class="highlight">
+<pre><span class="nx">$</span><span class="p">(</span><span class="s1">'@form'</span><span class="p">)</span>
+</pre>
+</div>
+
+
+<p>You can combine role with other selectors, but that is not recommended:</p>
+
+<p><code>&lt;form class="dark" role="login_form" method="post"&gt;&lt;/form&gt;</code>:</p>
+
+<div class="highlight">
+<pre><span class="nx">$</span><span class="p">(</span><span class="s1">'form.dark@login_form[method=post]'</span><span class="p">)</span>
+</pre>
+</div>
+
+
+<h2>Installation</h2>
+
+<p>Coming soon.</p>
+
+<h2>Changelog</h2>
+
+<h3>1.2.0 (April 19, 2012)</h3>
+
+<ul>
+<li>Total rewrite. jQuery versions 1.2-1.7 compatibility (<a href="https://github.com/rwz" class="user-mention">@rwz</a>)</li>
+</ul><h3>1.0.2 (March 14, 2012)</h3>
+
+<ul>
+<li>Fixes problem in Internet Explorer 8 in jquery.role.js and role.js (issue #11) (thanks <a href="https://github.com/igor-alexandrov" class="user-mention">@igor-alexandrov</a> for help)</li>
+</ul><h3>1.0.1 (January 27, 2012)</h3>
+
+<ul>
+<li>Fixes problem with multiple roles in Firefox 8 and later (issue #9)</li>
+</ul><h3>1.0.0 (December 26, 2011)</h3>
+
+<ul>
+<li>Remove depricated function</li>
+<li>Rewrite in CoffeeScript</li>
+</ul><h3>0.4.1 (December 8, 2011)</h3>
+
+<ul>
+<li>Fix issue #8</li>
+</ul><h3>0.4.0 (December 8, 2011)</h3>
+
+<ul>
+<li>Added specs for jQuery Role</li>
+<li>Selectors performance improvement for modern browsers (also covers #6)</li>
+<li>Role extension for querySelectorAll function (<code>src/role.coffee</code>)</li>
+</ul><h3>0.3.2 (June 2, 2011)</h3>
+
+<ul>
+<li>Reverted changes made in 0.3.1 because issue #6</li>
+</ul><h3>0.3.1 (May 24, 2011)</h3>
+
+<ul>
+<li>Selectors performance improvement for modern browsers</li>
+</ul><h3>0.3.0 (May 23, 2011)</h3>
+
+<ul>
+<li>Added native Sizzle selectors support (<code>$('@ajax_link')</code>)</li>
+</ul><h3>0.2.0 (May 20, 2011)</h3>
+
+<ul>
+<li>Added mechanism to pick roles by element id</li>
+</ul><h3>0.1.0 (May 05, 2011)</h3>
+
+<ul>
+<li>Initial release</li>
+</ul><h2>Contributors</h2>
+
+<p>Original idea by <a href="https://github.com/kossnocorp" class="user-mention">@kossnocorp</a> and <a href="https://github.com/ai" class="user-mention">@ai</a>.</p>
+
+<ul>
+<li><a href="https://github.com/kossnocorp" class="user-mention">@kossnocorp</a></li>
+<li><a href="https://github.com/chrome" class="user-mention">@chrome</a></li>
+<li><a href="https://github.com/rwz" class="user-mention">@rwz</a></li>
+<li><a href="https://github.com/yury" class="user-mention">@yury</a></li>
+</ul><p>Special thanks to <a href="https://github.com/skfd" class="user-mention">@skfd</a> and <a href="https://github.com/yaroslav" class="user-mention">@yaroslav</a> for helping with this README.</p>
+
+<h2>License</h2>
+
+<p>The MIT License</p>
+
+<p>Copyright (c) 2011 Sasha Koss</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/kossnocorp">kossnocorp</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-17373037-3");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
