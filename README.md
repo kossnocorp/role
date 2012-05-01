@@ -168,6 +168,7 @@ Original idea by @kossnocorp and @ai.
 * @kossnocorp
 * @chrome
 * @rwz
+* @yury
 
 Special thanks to @skfd and @yaroslav for helping with this README.
 
