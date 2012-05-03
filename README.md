@@ -1,4 +1,4 @@
-# jquery.role — jQuery plugin to provide easy way to handle DOM elements by role attribute
+# jquery.role — jQuery plugin to provide easy way to handle DOM elements by role attribute [ ![Build status](http://travis-ci.org/kossnocorp/role.png) ](http://travis-ci.org/kossnocorp/role)
 
 This project uses [Semantic Versioning](http://semver.org/) for release numbering.
 
