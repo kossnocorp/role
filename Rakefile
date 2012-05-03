@@ -20,5 +20,5 @@ task :test do
   results = JQUERY_VERSIONS.map do |version|
     system %{phantomjs ./test/phantom-test.js "test/test.html##{version}"}
   end
-  exit(results.all?? 1 : 0)
+  exit(results.all?? 0 : 1)
 end
