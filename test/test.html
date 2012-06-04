@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
                     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,7 +9,7 @@
     } else {
       version = '1.7.2';
     }
-    
+
     document.write('<scr'+'ipt src="https://ajax.googleapis.com/ajax/libs/jquery/'+version+'/jquery.js"></scr'+'ipt>');
   </script>
   <link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
@@ -18,9 +18,9 @@
   <script>console.log('Testing against jQuery version ' + jQuery.fn.jquery);</script>
 
   <script>
-  
+
     jQuery(function($){
-    
+
       function equalSelector(sel1, sel2, comment){
         var el1 = $(sel1), el2 = $(sel2);
         equal(el1.get(0), el2.get(0), comment && comment + ' first element');
@@ -28,17 +28,17 @@
         ok(el2.is(sel1));
         equal(el1.length, el2.length, comment && comment + ' nodeset length');
       };
-    
+
       test('elements by role using @ alias', function(){
         equalSelector('@some-role', '[role=some-role]');
       });
-          
+
       test('multiple roles', function(){
         equalSelector('@role-one', '#element-two');
         equalSelector('@role-two', '#element-two');
         equalSelector('@role-one@role-two', '#element-two');
       });
-    
+
       test('combined selectors', function(){
         equalSelector('div#element-one.awesome-div@some-role', '#element-one', 'complex');
         equalSelector('@role-one @role-three.element-three', '#element-three', 'nested');
@@ -47,11 +47,68 @@
         equalSelector('@role-three:last-child', '#element-four', 'with child');
         equalSelector('@role-three:nth-child(2)', '#element-four', 'with nth child');
       });
-      
+
+      test('hasRole', function(){
+        var element = $('#element-one');
+        ok(element.hasRole('some-role'));
+        ok(!element.hasRole('some-other-role'));
+      });
+
+      test('hasRole:multiple', function(){
+        var element = $('#element-two');
+        ok(element.hasRole('role-one role-two'));
+        ok(!element.hasRole('role-one role-three'));
+      });
+
+      test('addRole', function(){
+        var element = $('#element-one').addRole('some-other-role');
+        ok(element.hasRole('some-other-role'));
+      });
+
+      test('addRole:multiple', function(){
+        var element = $('#element-two').addRole('role-three role-four');
+        ok(element.hasRole('role-three role-four'));
+      });
+
+      test('removeRole', function(){
+        var element = $('#element-one').removeRole('some-other-role');
+        ok(!element.hasRole('some-other-role'));
+      });
+
+      test('removeRole:multiple', function(){
+        var element = $('#element-two').removeRole('role-three role-four');
+        ok(!element.hasRole('role-three'));
+        ok(!element.hasRole('role-four'));
+      });
+
+      test('roles', function(){
+        var element = $('#element-one').addRole('one two three')
+                                       .addRole('three two one'); // duplicating
+        ok(~element.roles().indexOf('some-role'));
+        ok(~element.roles().indexOf('one'));
+        ok(~element.roles().indexOf('two'));
+        ok(~element.roles().indexOf('three'));
+        equal(element.roles().length, 4); // [ 'some-role', 'one', 'two', 'three' ]
+      });
+
+      test('toggleRole', function(){
+        var element =  $('#element-three').toggleRole('lolwat');
+        ok(element.hasRole('lolwat'));
+        element.toggleRole('lolwat');
+        ok(!element.hasRole('lolwat'));
+      });
+
+      test('toggleRole:multiple', function(){
+        var element = $('#element-four').toggleRole('role-three lolwat role-four');
+        ok(!element.hasRole('role-three'));
+        ok(element.hasRole('lolwat'));
+        ok(element.hasRole('role-four'));
+      });
+
     });
 
   </script>
-  
+
 </head>
   <body>
     <h1 id="qunit-header">Role.js tests</h1>
@@ -60,14 +117,14 @@
     <h2 id="qunit-userAgent"></h2>
     <ol id="qunit-tests"></ol>
     <div id="qunit-fixture">
-      
+
       <div id="element-one" class="awesome-div" role="some-role"></div>
       <div id="element-two" role="role-one role-two">
         <div id="element-three" class="element-three" role="role-three"></div>
         <div id="element-four" role="role-three"></div>
       </div>
-      
-      
+
+
     </div>
   </body>
 </html>
