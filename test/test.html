@@ -49,60 +49,67 @@
       });
 
       test('hasRole', function(){
-        var element = $('#element-one');
-        ok(element.hasRole('some-role'));
-        ok(!element.hasRole('some-other-role'));
+        var element = $('#one');
+        ok(element.hasRole('has'));
+        ok(!element.hasRole('no-has'));
       });
 
       test('hasRole:multiple', function(){
-        var element = $('#element-two');
-        ok(element.hasRole('role-one role-two'));
-        ok(!element.hasRole('role-one role-three'));
+        var element = $('#two');
+        ok(element.hasRole('one two'));
+        ok(!element.hasRole('one three'));
       });
 
       test('addRole', function(){
-        var element = $('#element-one').addRole('some-other-role');
-        ok(element.hasRole('some-other-role'));
+        var element = $('#three');
+        equal(element, element.addRole('add-role'));
+        ok(element.hasRole('add-role'));
       });
 
       test('addRole:multiple', function(){
-        var element = $('#element-two').addRole('role-three role-four');
-        ok(element.hasRole('role-three role-four'));
+        var element = $('#four');
+        equal(element, element.addRole('three four'));
+        ok(element.hasRole('three four'));
       });
 
       test('removeRole', function(){
-        var element = $('#element-one').removeRole('some-other-role');
-        ok(!element.hasRole('some-other-role'));
+        var element = $('#five');
+        equal(element, element.removeRole('five'));
+        ok(!element.hasRole('five'));
       });
 
       test('removeRole:multiple', function(){
-        var element = $('#element-two').removeRole('role-three role-four');
-        ok(!element.hasRole('role-three'));
-        ok(!element.hasRole('role-four'));
+        var element = $('#six');
+        equal(element, element.removeRole('six seven'));
+        ok(!element.hasRole('six'));
+        ok(!element.hasRole('seven'));
       });
 
       test('roles', function(){
-        var element = $('#element-one').addRole('one two three')
-                                       .addRole('three two one'); // duplicating
-        ok(~element.roles().indexOf('some-role'));
+        var element = $('#seven');
+        ok(~element.roles().indexOf('zero'));
         ok(~element.roles().indexOf('one'));
         ok(~element.roles().indexOf('two'));
         ok(~element.roles().indexOf('three'));
-        equal(element.roles().length, 4); // [ 'some-role', 'one', 'two', 'three' ]
+        equal(element.roles().length, 4); // [ 'zero', 'one', 'two', 'three' ]
       });
 
       test('toggleRole', function(){
-        var element =  $('#element-three').toggleRole('lolwat');
-        ok(element.hasRole('lolwat'));
-        element.toggleRole('lolwat');
-        ok(!element.hasRole('lolwat'));
+        var element = $('#eight');
+        ok(!element.hasRole('eight'));
+        equal(element, element.toggleRole('eight'));
+        ok(element.hasRole('eight'));
+        equal(element, element.toggleRole('eight'));
+        ok(!element.hasRole('eight'));
       });
 
       test('toggleRole:multiple', function(){
-        var element = $('#element-four').toggleRole('role-three lolwat role-four');
-        ok(!element.hasRole('role-three'));
-        ok(element.hasRole('lolwat'));
-        ok(element.hasRole('role-four'));
+        var element = $('#nine');
+        ok(element.hasRole('nine'));
+        ok(!element.hasRole('eight'));
+        equal(element, element.toggleRole('eight nine'));
+        ok(!element.hasRole('nine'));
+        ok(element.hasRole('eight'));
       });
 
     });
@@ -124,7 +131,15 @@
         <div id="element-four" role="role-three"></div>
       </div>
 
-
+      <div id="one" role="has"></div>
+      <div id="two" role="one two"></div>
+      <div id="three"></div>
+      <div id="four"></div>
+      <div id="five" role="five"></div>
+      <div id="six" role="six seven"></div>
+      <div id="seven" role="zero zero one two three three two two one"></div>
+      <div id="eight"></div>
+      <div id="nine" role="nine"></div>
     </div>
   </body>
 </html>
