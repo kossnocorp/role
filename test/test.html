@@ -96,7 +96,6 @@
 
       test('toggleRole', function(){
         var element = $('#eight');
-        ok(!element.hasRole('eight'));
         equal(element, element.toggleRole('eight'));
         ok(element.hasRole('eight'));
         equal(element, element.toggleRole('eight'));
@@ -105,8 +104,6 @@
 
       test('toggleRole:multiple', function(){
         var element = $('#nine');
-        ok(element.hasRole('nine'));
-        ok(!element.hasRole('eight'));
         equal(element, element.toggleRole('eight nine'));
         ok(!element.hasRole('nine'));
         ok(element.hasRole('eight'));
