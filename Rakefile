@@ -13,7 +13,7 @@ task :build do
   end
 end
 
-JQUERY_VERSIONS = %w(1.2.6 1.3.2 1.4.2 1.5.2 1.6.1 1.7.1 1.7.2)
+JQUERY_VERSIONS = %w(1.2.6 1.3.2 1.4.2 1.5.2 1.6.1 1.7.1 1.7.2 1.8.0)
 
 desc 'Run tests'
 task :test do
