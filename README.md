@@ -1,4 +1,4 @@
-# ![jQuery Role](http://f.cl.ly/items/1n1m422M3c1y1U0B3C1X/role_logo.png)
+# ![jQuery Role](http://f.cl.ly/items/3L1b2G1M1z0O3p3m3Y1z/role_logo.png)
 ## jQuery Role — jQuery plugin to provide easy way to handle DOM elements by role attribute [ ![Build status](http://travis-ci.org/kossnocorp/role.png) ](http://travis-ci.org/kossnocorp/role)
 
 This project uses [Semantic Versioning](http://semver.org/) for release numbering.
