@@ -101,7 +101,7 @@ Will select all forms with "form" as role `<form role="form login_form"></form><
 $('@form')
 ```
 
-You can combine role with other selectors, but that is not recommended:
+You can combine role with other selectors as well:
 
 `<form class="dark" role="login_form" method="post"></form>`:
 
