@@ -115,6 +115,11 @@ Coming soon.
 
 ## Changelog
 
+### 1.3.0 (August 18, 2012)
+
+* Added roles, hasRole, addRole, removeRole and toggleRole jQuery methods.
+* jQuery 1.8 compatibility confirmed.
+
 ### 1.2.0 (April 19, 2012)
 
 * Total rewrite. jQuery versions 1.2-1.7 compatibility (@rwz)
