@@ -23,10 +23,9 @@
 
       function equalSelector(sel1, sel2, comment){
         var el1 = $(sel1), el2 = $(sel2);
-        equal(el1.get(0), el2.get(0), comment && comment + ' first element');
+        deepEqual(el1.get(), el2.get(), comment && comment + ' nodes');
         ok(el1.is(sel2));
         ok(el2.is(sel1));
-        equal(el1.length, el2.length, comment && comment + ' nodeset length');
       };
 
       test('elements by role using @ alias', function(){
@@ -91,7 +90,7 @@
         ok(~element.roles().indexOf('one'));
         ok(~element.roles().indexOf('two'));
         ok(~element.roles().indexOf('three'));
-        equal(element.roles().length, 4); // [ 'zero', 'one', 'two', 'three' ]
+        deepEqual(element.roles(), [ 'zero', 'one', 'two', 'three' ]); //
       });
 
       test('toggleRole', function(){
