@@ -115,6 +115,10 @@ Coming soon.
 
 ## Changelog
 
+### 1.3.1 (August 24, 2012)
+
+* Override matchesSelector in role.js.
+
 ### 1.3.0 (August 18, 2012)
 
 * Added roles, hasRole, addRole, removeRole and toggleRole jQuery methods.
