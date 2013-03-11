@@ -12,7 +12,7 @@ Sponsored by [Evil Martians](http://evilmartians.com/).
 * [jquery.role.js](https://raw.github.com/kossnocorp/role/master/lib/jquery.role.js)
 * [role.js](https://raw.github.com/kossnocorp/role/master/lib/role.js)
 
-Also you can add jquery.role.js and role.js by bundle `role-rails` gem. For futher details see *installation* section below.
+Also you can add jquery.role.js and role.js by bundle `role-rails` gem. For further details see *installation* section below.
 
 ## Use `role` attribute FTW
 
@@ -45,13 +45,13 @@ Obviously, you'll have to rewrite all the selectors for the new layout. And it w
 
 Another issue is that refactoring process requires you to change the names or a number of classes. You'll have to muddle through every JS file to find all classes you are going to change.
 
-And, of course, in both cases the end result is absolutely unpredictable, because layout alone is not enougn to figure out if a class is actualy used in JS.
+And, of course, in both cases the end result is absolutely unpredictable, because layout alone is not enough to figure out if a class is actually used in JS.
 
 The `.js-class_name` prefix use may seem like a good idea, except that someone will surely add styles to this class in a future... Let alone the difficulty to spot, among a large of number of classes, one with a prefix.
 
 In order to avoid this problems, we can "attach" JS to DOM elements by a `role` attribute.
 
-It's a lot safer then prefixes, beacause it's much harder to attach styles to `role` and it feals morally difficult to break the `role` use convention.
+It's a lot safer then prefixes, because it's much harder to attach styles to `role` and it feels morally difficult to break the `role` use convention.
 
 With the use of `role`, layout update becomes very straightforward: you just have to add roles to a new element, and if you are not tied to the "magic numbers" -- it will work with no further hassle.
 
@@ -73,7 +73,7 @@ In addition to the jQuery plug-in, I also wrote a version that extends `querySel
 
 Using of 'role' in a query may work a bit slower compared to usual selectors, but it's neglectable even in a large number of queries.
 
-In addition to `role`, I sometimes use `id`, but only in very extraodinary cases — because if there is only single element on a page today, it may happen that there will be a few tomorrow, even if that wasn't planned.
+In addition to `role`, I sometimes use `id`, but only in very extraordinary cases — because if there is only single element on a page today, it may happen that there will be a few tomorrow, even if that wasn't planned.
 
 ## Usage
 
@@ -138,7 +138,7 @@ Coming soon.
 
 ### 1.0.0 (December 26, 2011)
 
-* Remove depricated function
+* Remove deprecated function
 * Rewrite in CoffeeScript
 
 ### 0.4.1 (December 8, 2011)
