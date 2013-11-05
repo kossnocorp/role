@@ -1,0 +1,22 @@
+{
+  "name": "jquery.role",
+  "version": "1.3.1",
+  "homepage": "https://github.com/kossnocorp/role",
+  "authors": [
+    "Sasha Koss <kossnocorp@gmail.com>"
+  ],
+  "description": "jQuery plugin to provide easy way to handle DOM elements by role attribute",
+  "main": "lib/role.min.js",
+  "keywords": [
+    "role",
+    "jquery"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
